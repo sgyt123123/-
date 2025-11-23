@@ -58,7 +58,11 @@ const EraComparison: React.FC = () => {
                         value={era.id}
                         onChange={(e) => setEra(ERAS.find(x => x.id === e.target.value) || ERAS[0])}
                     >
-                        {ERAS.map(e => <option key={e.id} value={e.id}>{e.name}</option>)}
+                        {ERAS.map(e => (
+                            <option key={e.id} value={e.id} className="bg-slate-900 text-slate-200">
+                                {e.name}
+                            </option>
+                        ))}
                     </select>
 
                     <div className="absolute -top-3 left-2 px-1 bg-slate-900 text-[9px] text-cyan-500 opacity-0 group-hover/select:opacity-100 transition-opacity pointer-events-none font-medium z-20">

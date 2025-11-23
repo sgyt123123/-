@@ -257,8 +257,10 @@ const FutureScenarios: React.FC = () => {
                                         ))}
                                     </tbody>
                                 </table>
-                                <div className="mt-4 p-3 bg-slate-950/50 rounded border border-slate-800/50 italic text-xs text-slate-400">
-                                    "{COGNITIVE_PIPELINE_DATA.insight}"
+                                <div className="mt-6 p-6 bg-gradient-to-r from-cyan-950/30 to-slate-900/50 rounded-xl border-l-4 border-cyan-500 shadow-lg">
+                                    <p className="text-base lg:text-lg font-serif text-cyan-100 leading-relaxed font-medium">
+                                        "{COGNITIVE_PIPELINE_DATA.insight}"
+                                    </p>
                                 </div>
                             </div>
 
