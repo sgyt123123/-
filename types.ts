@@ -3,11 +3,6 @@ export enum TechType {
   ENABLING = 'Enabling',   // Labor-augmenting
 }
 
-export interface GeminiResponse {
-  markdown: string;
-  relatedConcepts: string[];
-}
-
 export interface HistoricalEra {
   id: string;
   name: string;

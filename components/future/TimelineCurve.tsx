@@ -1,92 +1,9 @@
-import React, { useState } from 'react';
-import { FUTURE_SCENARIOS, PERSONAL_STRATEGIES, COGNITIVE_PIPELINE_DATA } from '../constants';
-import { History, CheckCircle, XCircle, AlertTriangle, TrendingUp, User, Globe, Zap, Clock, ArrowRightLeft, UserCircle, BrainCircuit } from 'lucide-react';
+import React from 'react';
+import { COGNITIVE_PIPELINE_DATA } from '../../constants';
+import { TrendingUp, Clock, Zap, BrainCircuit, UserCircle, ArrowRightLeft } from 'lucide-react';
 
-const FutureScenarios: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'scenarios' | 'curve' | 'personal'>('scenarios');
-
-  return (
-    <div className="h-full flex flex-col gap-6">
-      {/* Toggle */}
-      <div className="flex justify-center shrink-0">
-        <div className="bg-slate-900 p-1 rounded-lg border border-slate-800 inline-flex flex-wrap justify-center gap-1">
-            <button 
-                onClick={() => setActiveTab('scenarios')}
-                className={`px-4 py-2 text-xs lg:text-sm font-medium rounded-md transition-all flex items-center gap-2 ${activeTab === 'scenarios' ? 'bg-slate-800 text-white shadow ring-1 ring-cyan-500/20' : 'text-slate-500 hover:text-slate-300'}`}
-            >
-                <Globe size={14} /> 宏观：制度路径
-            </button>
-            <button 
-                onClick={() => setActiveTab('curve')}
-                className={`px-4 py-2 text-xs lg:text-sm font-medium rounded-md transition-all flex items-center gap-2 ${activeTab === 'curve' ? 'bg-slate-800 text-white shadow ring-1 ring-cyan-500/20' : 'text-slate-500 hover:text-slate-300'}`}
-            >
-                <TrendingUp size={14} /> 趋势：技术曲线
-            </button>
-            <button 
-                onClick={() => setActiveTab('personal')}
-                className={`px-4 py-2 text-xs lg:text-sm font-medium rounded-md transition-all flex items-center gap-2 ${activeTab === 'personal' ? 'bg-slate-800 text-white shadow ring-1 ring-cyan-500/20' : 'text-slate-500 hover:text-slate-300'}`}
-            >
-                <User size={14} /> 微观：个人策略
-            </button>
-        </div>
-      </div>
-
-      {activeTab === 'scenarios' && (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1 overflow-y-auto pb-6 custom-scrollbar min-h-0 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            {FUTURE_SCENARIOS.map((scenario) => {
-                const Icon = scenario.icon;
-                return (
-                    <div key={scenario.id} className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-all group flex flex-col relative overflow-hidden min-h-[450px]">
-                        <div className={`absolute top-0 left-0 w-full h-1 ${scenario.id === 'nordic' ? 'bg-green-500' : scenario.id === 'us' ? 'bg-cyan-500' : 'bg-yellow-500'}`}></div>
-                        
-                        <div className="flex items-center gap-3 mb-6 shrink-0">
-                            <div className={`p-3 rounded-lg bg-slate-950 border border-slate-800 ${scenario.color}`}>
-                                <Icon size={24} />
-                            </div>
-                            <h3 className={`font-bold text-lg ${scenario.color}`}>{scenario.name}</h3>
-                        </div>
-
-                        <div className="space-y-8 flex-1 overflow-y-auto custom-scrollbar pr-2">
-                            <div>
-                                <h4 className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-3">核心机制</h4>
-                                <ul className="space-y-2">
-                                    {scenario.mechanism.map((m, i) => (
-                                        <li key={i} className="text-sm text-slate-300 flex items-start gap-2">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-slate-600 mt-1.5 shrink-0"></div>
-                                            {m}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="bg-slate-950 p-4 rounded-lg border border-slate-800/50">
-                                <h4 className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-2 flex items-center gap-1">
-                                    <History size={10} /> 历史镜像
-                                </h4>
-                                <p className="text-xs text-slate-400 leading-relaxed">{scenario.history}</p>
-                            </div>
-
-                            <div>
-                                <h4 className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-3">2035 预测结果</h4>
-                                <ul className="space-y-2">
-                                    {scenario.outcome.map((o, i) => (
-                                        <li key={i} className="text-xs text-slate-300 flex items-center gap-2 font-medium">
-                                            {o.startsWith('✓') ? <CheckCircle size={12} className="text-green-500 shrink-0" /> : 
-                                             o.startsWith('❌') ? <XCircle size={12} className="text-red-500 shrink-0" /> : 
-                                             <AlertTriangle size={12} className="text-yellow-500 shrink-0" />}
-                                            {o.substring(2)}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                )
-            })}
-        </div>
-      )}
-
-      {activeTab === 'curve' && (
+const TimelineCurve: React.FC = () => {
+    return (
         <div className="flex-1 bg-slate-950 border border-slate-800 rounded-xl p-0 overflow-hidden flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-500">
              
              {/* Header */}
@@ -258,7 +175,7 @@ const FutureScenarios: React.FC = () => {
                                     </tbody>
                                 </table>
                                 <div className="mt-6 p-6 bg-gradient-to-r from-cyan-950/30 to-slate-900/50 rounded-xl border-l-4 border-cyan-500 shadow-lg">
-                                    <p className="text-base lg:text-lg font-serif text-cyan-100 leading-relaxed font-medium">
+                                    <p className="text-sm lg:text-base font-serif text-cyan-100 leading-relaxed font-medium">
                                         "{COGNITIVE_PIPELINE_DATA.insight}"
                                     </p>
                                 </div>
@@ -333,55 +250,7 @@ const FutureScenarios: React.FC = () => {
                 </div>
              </div>
         </div>
-      )}
-
-      {activeTab === 'personal' && (
-        <div className="flex-1 bg-slate-900/50 border border-slate-800 rounded-xl p-4 lg:p-8 overflow-y-auto custom-scrollbar relative animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="max-w-4xl mx-auto flex flex-col py-10">
-                 <div className="text-center mb-12 shrink-0">
-                    <h3 className="text-2xl lg:text-3xl font-serif font-black text-white mb-2">反脆弱职业能力金字塔</h3>
-                    <p className="text-slate-400 text-sm">如何成为"AI增强型专家"而非"被AI替代的专家"</p>
-                 </div>
-
-                 <div className="flex flex-col gap-4 relative">
-                    {/* Visual guide line */}
-                    <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-cyan-500 via-purple-500 to-slate-700 hidden lg:block opacity-30"></div>
-
-                    {PERSONAL_STRATEGIES.map((strat, index) => { 
-                        const Icon = strat.icon;
-                        const isTop = index === 0; // Since we reversed data order in constants, first item is now Top (Meta)
-                        return (
-                            <div key={index} className="flex gap-4 lg:gap-8 group">
-                                <div className="hidden lg:flex flex-col items-center justify-center w-16 shrink-0">
-                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 z-10 bg-slate-950 transition-colors ${isTop ? 'border-purple-500 text-purple-400 group-hover:bg-purple-500/10' : 'border-slate-700 text-slate-500 group-hover:border-cyan-500 group-hover:text-cyan-400'}`}>
-                                        <Icon size={20} />
-                                    </div>
-                                </div>
-                                <div className={`flex-1 p-6 rounded-xl border transition-all duration-300 hover:translate-x-2 ${isTop ? 'bg-purple-900/10 border-purple-500/30' : 'bg-slate-950 border-slate-800 hover:border-cyan-500/30'}`}>
-                                    <div className="flex justify-between items-start mb-2">
-                                        <h4 className={`text-lg font-bold ${isTop ? 'text-purple-400' : 'text-slate-200 group-hover:text-cyan-400'}`}>{strat.title}</h4>
-                                        <span className="text-[10px] uppercase tracking-widest text-slate-500 font-mono border border-slate-800 px-2 py-0.5 rounded">{strat.level}</span>
-                                    </div>
-                                    <div className="flex flex-wrap gap-2 mb-3">
-                                        {strat.skills.map(s => (
-                                            <span key={s} className="text-xs bg-black/30 px-2 py-1 rounded text-slate-400 border border-white/5">
-                                                {s}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <p className="text-sm text-slate-500 leading-relaxed italic border-l-2 border-slate-800 pl-3">
-                                        "{strat.desc}"
-                                    </p>
-                                </div>
-                            </div>
-                        )
-                    })}
-                 </div>
-            </div>
-        </div>
-      )}
-    </div>
-  );
+    );
 };
 
-export default FutureScenarios;
+export default TimelineCurve;

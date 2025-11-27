@@ -1,3 +1,4 @@
+
 import { ChartData, DataPoint, HistoricalEra, FutureScenario } from './types';
 import { Shield, Zap, TrendingUp, Anchor, Cpu, Factory, Database, Brain, Target, Layers } from 'lucide-react';
 
@@ -37,7 +38,7 @@ export const TRAP_LOGIC_MAP: ChartData = {
       id: 'tech_shock', 
       label: '技术变革', 
       type: 'cause', 
-      x: 425, y: 50, // Top anchor
+      x: 450, y: 50, 
       description: "技术本身是中性的，但其属性（取代 vs 赋能）决定了初始冲击。",
       detailedMarkdown: `
 ### 技术变革的双重性 (The Duality of Tech)
@@ -63,7 +64,7 @@ export const TRAP_LOGIC_MAP: ChartData = {
       id: 'short_term', 
       label: '短期破坏', 
       type: 'effect', 
-      x: 425, y: 300, 
+      x: 450, y: 250, 
       description: "技能贬值与恩格斯停顿。这是“痛苦的转型期”。",
       detailedMarkdown: `
 ### 短期破坏 (Short-Run Disruption)
@@ -92,12 +93,12 @@ export const TRAP_LOGIC_MAP: ChartData = {
       id: 'institution_gap', 
       label: '制度滞后', 
       type: 'cause', 
-      x: 425, y: 550, 
+      x: 450, y: 500, 
       description: "技术呈指数级发展，而制度呈线性演变。这种滞后是混乱的根源。",
       detailedMarkdown: `
 ### 制度滞后 (Institutional Lag)
 
-**核心论点**：技术陷阱的根源不在于技术本身，而在于**制度响应的速度**。
+**核心论点**：技术陷阱的根源不在于技术本身，而在于**制度响应的速度**。这是所有国家都会经历的十字路口。
 
 #### 历史的时间差
 - **第一次工业革命**：技术突破（1760s） → 制度改革（1870s 教育法/工会法）。**滞后 110 年**。结果：三代人的痛苦与暴乱。
@@ -115,31 +116,59 @@ export const TRAP_LOGIC_MAP: ChartData = {
       id: 'resistance', 
       label: '社会反抗', 
       type: 'effect', 
-      x: 200, y: 800, 
-      description: "当大部分人受损时，理性选择就是反抗（卢德运动、民粹主义）。",
+      x: 180, y: 720, // Left Cluster
+      description: "不要嘲笑卢德分子 (Luddites)。他们不是反科技的疯子，而是理性的经济行动者。",
       detailedMarkdown: `
 ### 社会反抗 (Social Resistance)
 
-**不要嘲笑卢德分子 (Luddites)**。他们不是反科技的疯子，而是理性的经济行动者。
+**关系定位**：这是“短期破坏”未能得到“制度缓解”后的必然并发症。
 
 #### 历史镜像
-- **19世纪**：当织布机摧毁了生计，并没有任何社会保障时，砸毁机器是唯一的议价手段。英国政府不得不派兵 12,000 人镇压——人数超过了同期对拿破仑作战的军队。
-- **21世纪**：今天的反抗表现为对大型科技公司的监管呼声、反全球化浪潮、以及极右翼/极左翼民粹主义的兴起。
+*   **19世纪**：当织布机摧毁了生计，并没有任何社会保障时，砸毁机器是唯一的议价手段。英国政府不得不派兵 12,000 人镇压——人数超过了同期对拿破仑作战的军队。
+*   **21世纪**：今天的反抗表现为对大型科技公司的监管呼声、反全球化浪潮、以及极右翼/极左翼民粹主义的兴起。
 
-**核心逻辑**：如果社会契约破裂，人们觉得“努力工作不再能带来更好的生活”，通过政治或暴力手段阻碍技术就成为必然选项。
+#### 核心逻辑
+如果社会契约破裂，人们觉得“努力工作不再能带来更好的生活”，通过政治或暴力手段阻碍技术就成为必然选项。这是一种**政治上的失败**。
       `,
-      relatedConcepts: ["卢德主义", "政治极化", "谈判力量", "民粹主义"]
+      relatedConcepts: ["卢德运动", "议价能力", "社会契约", "民粹主义"]
+    },
+    { 
+      id: 'ford_paradox', 
+      label: '经济短路', 
+      type: 'trap', 
+      x: 450, y: 720, // Center Cluster
+      description: "亨利·福特的噩梦：消灭了生产者，也就消灭了消费者。",
+      detailedMarkdown: `
+### 经济短路 (The Economic Short-Circuit)
+
+> **"消灭了生产者，也就消灭了消费者。"**
+
+这是一个简单的宏观经济学会计恒等式。如果“制度滞后”未能解决分配问题，技术越进步，经济反而越脆弱。
+
+#### 1. 亨利·福特的直觉
+福特主动给工人 5 美元日薪（当时平均工资的 2 倍），不仅是为了留住人才，更是为了创造市场。**"如果我不给工人高工资，谁来买我的 T 型车？"**
+
+#### 2. 现代的断裂 (The Blockage)
+当制度（工会弱化、税收漏洞、零工经济）未能确保技术红利通过工资回流给大众时，经济血管就被血栓堵塞了：
+
+1.  **生产端 (Supply)**：AI 与机器人疯狂提升效率，产出爆炸。
+2.  **分配端 (Distribution)**：因为"去技能化"，工资占 GDP 比重持续下降（**制度性分配不公**）。
+3.  **消费端 (Demand)**：大众购买力枯竭，无法消化过剩的产能。
+
+**结果**：经济陷入**有效需求不足**的危机。这不是因为我们造不出东西，而是因为没人买得起。
+      `,
+      relatedConcepts: ["福特悖论", "有效需求不足", "宏观闭环", "分配正义"]
     },
     { 
       id: 'prosperity', 
       label: '包容性繁荣', 
       type: 'solution', 
-      x: 650, y: 800, 
+      x: 750, y: 720, // Right Cluster
       description: "最好的结果：技术创造新工作，制度确保红利共享。",
       detailedMarkdown: `
 ### 长期繁荣 (Shared Prosperity)
 
-这是第二次工业革命（1870-1950）实现的奇迹，也是我们当下的目标。
+这是第二次工业革命（1870-1950）实现的奇迹，也是我们当下的目标。它是对“制度滞后”的成功突围。
 
 #### 成功的要素
 1. **赋能型技术**：电力和内燃机不仅替代了蒸汽，更创造了数百万个前所未有的岗位（司机、电工、白领）。
@@ -154,33 +183,43 @@ export const TRAP_LOGIC_MAP: ChartData = {
       id: 'trap', 
       label: '技术陷阱', 
       type: 'trap', 
-      x: 425, y: 950, 
-      description: "最坏的结果：长期停滞或极端贫困。技术被阻断或红利被垄断。",
+      x: 320, y: 1050, // Converged from Left and Center
+      description: "最坏的结局：社会撕裂，动荡，以及潜在的技术停滞。",
       detailedMarkdown: `
 ### 技术陷阱 (The Technology Trap)
 
-这是本书的标题，也是我们需要极力避免的深渊。
+这是本书的标题，也是我们需要极力避免的深渊。它是所有负面路径的最终汇聚点。
 
-#### 罗马帝国的警示
-罗马皇帝维斯帕先拒绝了发明家提供的高效运输石柱的机器，理由是：**“我如何养活我的人民？”**
+#### 1. 罗马帝国的警示
+罗马皇帝维斯帕先拒绝了发明家提供的高效运输石柱的机器，理由是：“我如何养活我的人民？”
 在奴隶制下，劳动力极其廉价，且缺乏分配机制。统治者宁愿维持低效的就业以保稳定，也不愿采用技术。这导致了长达千年的技术停滞。
 
-#### 陷阱的两种形态
-1. **停滞陷阱 (Stagnation Trap)**：为了维稳禁止技术（如罗马、清朝）。结果：社会稳定但贫困。
-2. **贫困陷阱 (Inequality Trap)**：技术被采用，但红利被极少数“数字地主”垄断。结果：经济增长但社会撕裂，最终可能导致制度崩溃。
+#### 2. 陷阱的两种形态
+*   **停滞陷阱 (Stagnation Trap)**：为了维稳禁止技术（如罗马、清朝）。
+    *   **结果**：社会稳定但贫困。
+*   **贫困陷阱 (Inequality Trap)**：技术被采用，但红利被极少数“数字地主”垄断。
+    *   **结果**：经济增长但社会撕裂，最终可能导致制度崩溃。
 
-**AI 时代的风险**：我们可能正走向一种 **“新封建主义”** ，少数掌握算法和算力的人成为新贵族，而大众沦为无用阶级。
+**终局风险**：我们可能正走向一种 **“新封建主义”** ，少数掌握算法和算力的人成为新贵族，而大众沦为无用阶级。
       `,
-      relatedConcepts: ["前工业时代阻力", "长期停滞", "罗马技术谜题", "新封建主义"]
+      relatedConcepts: ["停滞陷阱", "新封建主义", "贫困陷阱", "罗马警示"]
     },
   ],
   links: [
     { source: 'tech_shock', target: 'short_term', label: '冲击 (Shock)' },
     { source: 'short_term', target: 'institution_gap', label: '挑战 (Challenge)' },
-    { source: 'institution_gap', target: 'resistance', label: '响应失败' },
-    { source: 'institution_gap', target: 'prosperity', label: '响应成功' },
-    { source: 'resistance', target: 'trap', label: '阻碍/动荡' },
-    { source: 'prosperity', target: 'tech_shock', label: '正向循环' },
+    
+    // Forking Paths - The Great Divergence
+    { source: 'institution_gap', target: 'resistance', label: '政治响应失败' },
+    { source: 'institution_gap', target: 'ford_paradox', label: '经济响应失败' },
+    { source: 'institution_gap', target: 'prosperity', label: '制度突围成功' }, // Major Green Path
+    
+    // Convergence to Trap - The Vicious Cycles
+    { source: 'ford_paradox', target: 'trap', label: '需求崩溃' }, // Major Red Path
+    { source: 'resistance', target: 'trap', label: '社会动荡' }, // Major Red Path
+    
+    // Feedback Loop - The Virtuous Cycle
+    { source: 'prosperity', target: 'tech_shock', label: '正向循环' }, // Major Blue Loop
   ]
 };
 
@@ -323,31 +362,31 @@ export const FUTURE_SCENARIOS: FutureScenario[] = [
 
 export const PERSONAL_STRATEGIES = [
   {
-    level: "元能力",
-    icon: Layers,
-    title: "反脆弱心态",
-    skills: ["适应不确定性", "快速技能迁移", "心理韧性"],
-    desc: "职业生涯不再是爬梯子，而是冲浪。拥抱波动性，而非恐惧它。"
-  },
-  {
-    level: "顶层",
+    level: "战略定位",
     icon: Target,
-    title: "战略与伦理",
-    skills: ["系统性思考", "伦理决策", "价值判断与定义"],
-    desc: "从「执行者」转变为流水线的「定义者」和「评估者」。"
+    title: "错位竞争：寻找「锯齿状前沿」",
+    skills: ["非结构化问题", "物理世界交互", "跨界缝合"],
+    desc: "AI 的能力边界是不平整的。不要在 AI 擅长的领域（如海量数据、模式识别）硬碰硬。人类的护城河在于 AI 难以触及的缝隙：处理模糊的人际政治、应对突发的混乱现实、以及定义全新的问题。"
   },
   {
-    level: "核心层",
+    level: "工作流重构",
+    icon: Zap,
+    title: "半人马模式：从执行者到指挥官",
+    skills: ["AI 编排 (Orchestration)", "思维链设计", "幻觉鉴别"],
+    desc: "未来不是「人 vs AI」，而是「人+AI」vs「人」。不要只把 AI 当搜索引擎。核心能力是将复杂任务拆解，像指挥军团一样调度 AI Agent，将你的单位时间产出杠杆化放大 100 倍。"
+  },
+  {
+    level: "核心壁垒",
     icon: Brain,
-    title: "复杂问题解决",
-    skills: ["创造性思维", "人际协作与共情", "非结构化问题处理"],
-    desc: "AI 擅长回答，人类擅长提问。AI 擅长逻辑，人类擅长情感。"
+    title: "稀缺的品味：从求解到提问",
+    skills: ["审美判断 (Taste)", "批判性思维", "伦理决策"],
+    desc: "当生成答案的边际成本趋近于零，稀缺的便不再是答案，而是「好问题」和「好品味」。你必须成为看门人 (Gatekeeper)，在海量生成的平庸内容中，筛选并注入只有人类具备的洞察与灵魂。"
   },
   {
-    level: "基础层",
-    icon: Database,
-    title: "数字素养与整合",
-    skills: ["持续学习能力", "跨领域知识整合", "AI 工具流掌握"],
-    desc: "这是新时代的识字率。不再是记忆知识，而是调用和整合知识的能力。"
+    level: "情感价值",
+    icon: Layers,
+    title: "高感性：建立深度信任",
+    skills: ["深度共情", "社群连接", "讲述故事"],
+    desc: "技术越是高冷 (High-Tech)，人们越渴望温情 (High-Touch)。无论是医疗、教育还是咨询，那些涉及「人与人深度连接」、需要建立脆弱信任的领域，是硅基智能无法逾越的最后一公里。"
   }
 ];
